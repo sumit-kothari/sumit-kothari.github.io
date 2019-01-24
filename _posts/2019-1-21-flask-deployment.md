@@ -11,10 +11,7 @@ title: Deep Learning deployment using Flask
 - [Usage / Installation][usage]
 - [Code structure][code_structure]
 - [Deep Learning Model][ml-model]
-- [Flask Webapp code][web-app]
-- [Integration of DL model with Flask app][integration]
-- [Deployment][deployment]
-
+- [Flask Webapp & Integrating DL model][web-app]
 
 
 # <a name="pre-request"></a>Pre-request
@@ -94,6 +91,53 @@ Following is the **logic used in [predict.py][predict.py]:**
 
 
 
+# <a name="web-app"></a>Flask Webapp & Integrating DL model
+
+The main python file for our webapp is `app.py`, which contains following major logic.
+
+
+We have method `upload_file()` which handles the index/root route path, for both GET and POST request type.
+
+<script src="https://gist-it.appspot.com/github/sumit-kothari/mnist-demo/blob/master/app.py?slice=19:21"></script>
+
+If the request type is GET we display [index.html][index.html] template file.
+
+<script src="https://gist-it.appspot.com/github/sumit-kothari/mnist-demo/blob/master/app.py?slice=49:51"></script>
+
+When request type is POST, user is trying to upload the image file.
+
+We validate the name, type of the uploaded image and redirect to error page if any validation error.
+
+<script src="https://gist-it.appspot.com/github/sumit-kothari/mnist-demo/blob/master/app.py?slice=21:32"></script>
+
+We have also loaded our `predict_image` (as `model_predict`) method from [predict.py][predict.py], which helps us in predicting label for the given image.
+
+<script src="https://gist-it.appspot.com/github/sumit-kothari/mnist-demo/blob/master/app.py?slice=3:4"></script>
+
+So, if image valid we call our `model_predict` which takes input parameter as image file and return label & label's confidence probabilty.
+
+And finally we redirect to new route method (`file_predict()`) where we display the predictions.
+
+<script src="https://gist-it.appspot.com/github/sumit-kothari/mnist-demo/blob/master/app.py?slice=32:46"></script>
+
+We also have a method called `file_predict()` which helps us in displaying the prediction result using [predict.html][predict.html] template file.
+
+<script src="https://gist-it.appspot.com/github/sumit-kothari/mnist-demo/blob/master/app.py?slice=57:67"></script>
+
+[predict.html][predict.html] has the template which displays predicted label value, predicted label confidence and original image.
+
+<script src="https://gist-it.appspot.com/github/sumit-kothari/mnist-demo/blob/master/templates/predict.html?slice=10:17"></script>
+
+
+Similarly, [index.html][index.html] has the template which allows us to upload the image, on which to predict.
+
+<script src="https://gist-it.appspot.com/github/sumit-kothari/mnist-demo/blob/master/templates/index.html?slice=11:15"></script>
+
+
+---
+
+#### The End
+
 [pre-request]: #pre-request
 [usage]: #usage
 [code_structure]: #code_structure
@@ -101,7 +145,9 @@ Following is the **logic used in [predict.py][predict.py]:**
 [web-app]: #web-app
 [integration]: #integration
 [deployment]: #deployment
-[train-mnist.py]: [https://github.com/sumit-kothari/mnist-demo/blob/master/tensorflow_model/train-mnist.py]
-[predict.py]: [https://github.com/sumit-kothari/mnist-demo/blob/master/tensorflow_model/predict.py]
+[train-mnist.py]: https://github.com/sumit-kothari/mnist-demo/blob/master/tensorflow_model/train-mnist.py
+[predict.py]: https://github.com/sumit-kothari/mnist-demo/blob/master/tensorflow_model/predict.py
+[index.html]: https://github.com/sumit-kothari/mnist-demo/blob/master/templates/index.html
+[predict.html]: https://github.com/sumit-kothari/mnist-demo/blob/master/templates/predict.html
 [heroku-app-url]: https://mnist-demo-app.herokuapp.com/
 [repo_url]: https://github.com/sumit-kothari/mnist-demo
