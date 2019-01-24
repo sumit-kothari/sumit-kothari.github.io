@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Deep Learning deployment using Flask
+title: Deep Learning model deployment using Flask
 ---
 
 **[Heroku live web-app][heroku-app-url]**
