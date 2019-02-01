@@ -30,7 +30,7 @@ You should have basic understanding of:
 Clone/download code for this demo from [mnist-demo github repo][repo_url]
 
 ```bash
-git clone https://github.com/sumit-kothari/mnist-demo.git
+git clone https://github.com/other-things/mnist-demo.git
 ```
 
 Navigate to root of the project and install required dependencies
@@ -47,7 +47,7 @@ python app.py
 
 ### Deploy to heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/sumit-kothari/mnist-demo/tree/master)
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/other-things/mnist-demo/tree/master)
 
 
 
@@ -65,7 +65,7 @@ python app.py
 
 **Last line** in the code helps us in **saving our keras/tensorflow model**.
 
-<script src="https://gist-it.appspot.com/github/sumit-kothari/mnist-demo/blob/master/tensorflow_model/train-mnist.py?slice=-6:"></script>
+<script src="https://gist-it.appspot.com/github/other-things/mnist-demo/blob/master/tensorflow_model/train-mnist.py?slice=-6:"></script>
 
 
 ### Testing deeplearning model
@@ -78,7 +78,7 @@ Following is the **logic used in [predict.py][predict.py]:**
 
 - Load the model and graph 
 
-<script src="https://gist-it.appspot.com/github/sumit-kothari/mnist-demo/blob/master/tensorflow_model/predict.py?slice=7:13"></script>
+<script src="https://gist-it.appspot.com/github/other-things/mnist-demo/blob/master/tensorflow_model/predict.py?slice=7:13"></script>
 
 
 - Method `predict_image` takes **image as input** and **returns image label with confidence/probability** 
@@ -87,7 +87,7 @@ Following is the **logic used in [predict.py][predict.py]:**
 
 - Finally in `predict_image`, we pass this test image array to `model.predict` method, which help us in predicting the most probable label with its probability
 
-<script src="https://gist-it.appspot.com/github/sumit-kothari/mnist-demo/blob/master/tensorflow_model/predict.py?slice=14:34"></script>
+<script src="https://gist-it.appspot.com/github/other-things/mnist-demo/blob/master/tensorflow_model/predict.py?slice=14:34"></script>
 
 
 
@@ -98,40 +98,40 @@ The main python file for our webapp is `app.py`, which contains following major 
 
 We have method `upload_file()` which handles the index/root route path, for both GET and POST request type.
 
-<script src="https://gist-it.appspot.com/github/sumit-kothari/mnist-demo/blob/master/app.py?slice=19:21"></script>
+<script src="https://gist-it.appspot.com/github/other-things/mnist-demo/blob/master/app.py?slice=19:21"></script>
 
 If the request type is GET we display [index.html][index.html] template file.
 
-<script src="https://gist-it.appspot.com/github/sumit-kothari/mnist-demo/blob/master/app.py?slice=49:51"></script>
+<script src="https://gist-it.appspot.com/github/other-things/mnist-demo/blob/master/app.py?slice=49:51"></script>
 
 When request type is POST, user is trying to upload the image file.
 
 We validate the name, type of the uploaded image and redirect to error page if any validation error.
 
-<script src="https://gist-it.appspot.com/github/sumit-kothari/mnist-demo/blob/master/app.py?slice=21:32"></script>
+<script src="https://gist-it.appspot.com/github/other-things/mnist-demo/blob/master/app.py?slice=21:32"></script>
 
 We have also loaded our `predict_image` (as `model_predict`) method from [predict.py][predict.py], which helps us in predicting label for the given image.
 
-<script src="https://gist-it.appspot.com/github/sumit-kothari/mnist-demo/blob/master/app.py?slice=3:4"></script>
+<script src="https://gist-it.appspot.com/github/other-things/mnist-demo/blob/master/app.py?slice=3:4"></script>
 
 So, if image valid we call our `model_predict` which takes input parameter as image file and return label & label's confidence probabilty.
 
 And finally we redirect to new route method (`file_predict()`) where we display the predictions.
 
-<script src="https://gist-it.appspot.com/github/sumit-kothari/mnist-demo/blob/master/app.py?slice=32:46"></script>
+<script src="https://gist-it.appspot.com/github/other-things/mnist-demo/blob/master/app.py?slice=32:46"></script>
 
 We also have a method called `file_predict()` which helps us in displaying the prediction result using [predict.html][predict.html] template file.
 
-<script src="https://gist-it.appspot.com/github/sumit-kothari/mnist-demo/blob/master/app.py?slice=57:67"></script>
+<script src="https://gist-it.appspot.com/github/other-things/mnist-demo/blob/master/app.py?slice=57:67"></script>
 
 [predict.html][predict.html] has the template which displays predicted label value, predicted label confidence and original image.
 
-<script src="https://gist-it.appspot.com/github/sumit-kothari/mnist-demo/blob/master/templates/predict.html?slice=10:17"></script>
+<script src="https://gist-it.appspot.com/github/other-things/mnist-demo/blob/master/templates/predict.html?slice=10:17"></script>
 
 
 Similarly, [index.html][index.html] has the template which allows us to upload the image, on which to predict.
 
-<script src="https://gist-it.appspot.com/github/sumit-kothari/mnist-demo/blob/master/templates/index.html?slice=11:15"></script>
+<script src="https://gist-it.appspot.com/github/other-things/mnist-demo/blob/master/templates/index.html?slice=11:15"></script>
 
 
 ---
@@ -145,9 +145,9 @@ Similarly, [index.html][index.html] has the template which allows us to upload t
 [web-app]: #web-app
 [integration]: #integration
 [deployment]: #deployment
-[train-mnist.py]: https://github.com/sumit-kothari/mnist-demo/blob/master/tensorflow_model/train-mnist.py
-[predict.py]: https://github.com/sumit-kothari/mnist-demo/blob/master/tensorflow_model/predict.py
-[index.html]: https://github.com/sumit-kothari/mnist-demo/blob/master/templates/index.html
-[predict.html]: https://github.com/sumit-kothari/mnist-demo/blob/master/templates/predict.html
+[train-mnist.py]: https://github.com/other-things/mnist-demo/blob/master/tensorflow_model/train-mnist.py
+[predict.py]: https://github.com/other-things/mnist-demo/blob/master/tensorflow_model/predict.py
+[index.html]: https://github.com/other-things/mnist-demo/blob/master/templates/index.html
+[predict.html]: https://github.com/other-things/mnist-demo/blob/master/templates/predict.html
 [heroku-app-url]: https://mnist-demo-app.herokuapp.com/
-[repo_url]: https://github.com/sumit-kothari/mnist-demo
+[repo_url]: https://github.com/other-things/mnist-demo
